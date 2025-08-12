@@ -120,4 +120,53 @@ fruit[3,1]
 fruit[2,1]<- "pineapple"
 fruit
 
+#Select multiple elements 
+x <- 1:10
+x[c(3,1,5)]
+x[c(1,1,1)]
+x[c(1.2, 5.4, 7.2)]
+
+# Exclude elements with negative inegers
+x[-10]
+x[-c(2, 4, 6, 8, 10)]
+x[c(-1,2)]
+
+# logical vectors 
+x[c(TRUE, FALSE, FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, FALSE, TRUE)]
+
+x[x>3]
+
+x[]
+
+x[0]
+
+# Subsetting and assignment 
+
+x <- 1:5
+x[c(1,2)] <- 2:3
+x
+
+x[-1] <- 4:1
+x
+
+#Subset rows in data frames based on conditions (logical subsetting)
+
+mtcars[mtcars$gear == 5, ]
+
+mtcars[mtcars$gear == 5 & mtcars$cyl == 4, ]
+
+
+#Shorthand version using the subset function 
+subset(mtcars, gear == 5)
+subset(mtcars, gear == 5 & cyl == 4)
+
+#Remove columns 
+df <- data.frame(x = 1:3, 
+                 y = 3:1, 
+                 z = "a", "b", "c")
+df$z <- NULL
+df <- df[c("x", "y")]
+df
+df[setdiff(names(df), "z")]
+
 
